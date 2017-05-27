@@ -2,7 +2,7 @@
 Janitri Assignment
 ###################
 
-This is a assignment project.
+This is an assignment project.
 
 ###################
 Tech-Stack
