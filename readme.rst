@@ -1,8 +1,8 @@
 ###################
-AdSquare Project
+Janitri Assignment
 ###################
 
-This is a test project for online advertisement portal.
+This is a assignment project.
 
 ###################
 Tech-Stack
