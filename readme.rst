@@ -2,7 +2,7 @@
 Janitri Assignment
 ###################
 
-This is an assignment project.
+This is an assignment project. Hosted at : http://assignment.rf.gd/i
 
 ###################
 Tech-Stack
