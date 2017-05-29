@@ -34,55 +34,22 @@ class Users_model extends CI_Model {
             return $result=$query->row_array();
         }
         
-        public function GetUserSessionData($Email)
+        public function GetUserData($ID)
         {
-            $this->db->select('ID,Name,Email,Interest')->where('Email',$Email);
-            $query = $this->db->get('users');
-            $result = $query->row_array();
-            return $result;
-        }
-        
-        public function GetUserProfileData($username)
-        {
-            $this->db->select('ID,FirstName,LastName,Email,Username,Purpose')->where('username',$username);
+            $this->db->select('ID,Name,Email,Interest')->where('ID',$ID);
             $query = $this->db->get('user');
             $result = $query->row_array();
             return $result;
         }
         
-        public function GetMembershipRequests_ForAdmin()
-        {
-            $this->db->select('ID,FirstName,LastName,Email,Username,Purpose')->where('Hash',!(1));
-            $query = $this->db->get('user');
-            $result = $query->result_array();
-            return $result;
+        public function UpdateProfile($ID,$Name,$Email,$Interest) {
+            $data = array(
+                    'Name' => $Name,
+                    'Email' => $Email,
+                    'Interest' => $Interest
+                    );
+            $this->db->where('ID',$ID);
+            $this->db->update('user', $data);
         }
         
-        public function ConfirmUser_ForAdmin($userID) {
-            $this->db->set('Hash', "1");
-            $this->db->where('ID', $userID);
-            $this->db->update('user');
-        }
-        
-        public function GetMembers_ForAdmin() {
-            $conditons = array('Hash' => 1, 'Type' => 'normal');
-            $this->db->select('ID,FirstName,LastName,Email,Username,Purpose')->where($conditons);
-            $query = $this->db->get('user');
-            $result = $query->result_array();
-            return $result;
-        }
-        
-        public function RemoveUser_ForAdmin($userID) {
-            $this->db->set('Hash', "");
-            $conditons = array('Hash' => 1, 'Type' => 'normal', 'ID' => $userID);
-            $this->db->where($conditons);
-            $this->db->update('user');
-        }
-        
-        public function GetUserProfileData_ForAdmin($userID){
-            $this->db->select('ID,FirstName,LastName,Email,Username,Purpose')->where('ID',$userID);
-            $query = $this->db->get('user');
-            $result = $query->row_array();
-            return $result;
-        }
 }

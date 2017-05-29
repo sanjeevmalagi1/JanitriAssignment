@@ -8,6 +8,7 @@
                       <p class="animated fadeInRight">Sat,October 1st 2029</p>
                     </li>
                     <li class="ripple"><a href="<?php echo base_url(); ?>index.php/News/"><span class="fa fa-calendar-o"></span>News</a></li>
+                    <li class="ripple"><a href="<?php echo base_url(); ?>index.php/User/UserProfile"><span class="fa fa-user"></span>My Profile</a></li>
                     <li class="ripple"><a href="<?php echo base_url(); ?>index.php/User/LogOut"><span class="fa fa-power-off"></span>LogOut</a></li>
                 </ul>
                 </div>
@@ -22,6 +23,11 @@
                     <li class="ripple">
                       <a href="<?php echo base_url(); ?>index.php/News/">
                          <span class="fa fa-calendar-o"></span>News
+                      </a>
+                    </li>
+                    <li class="ripple">
+                      <a href="<?php echo base_url(); ?>index.php/User/UserProfile">
+                         <span class="fa fa-user"></span>My Profile
                       </a>
                     </li>
                     <li class="ripple">

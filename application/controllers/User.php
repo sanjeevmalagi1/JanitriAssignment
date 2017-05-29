@@ -89,6 +89,36 @@ class User extends CI_Controller {
             }
         }
         
+        public function UserProfile()
+	{
+            if(($this->session->userdata('logged_in')== TRUE))
+            {    
+		$this->load->view('Templates/stylesheets');
+                $this->load->view('Templates/header');
+                $this->load->view('Templates/Leftmenu');
+                $this->load->view('Templates/titlebar');
+                $data['Profile']=$this->Users_model->GetUserData($this->session->userdata('ID'));
+                if($_SERVER['REQUEST_METHOD']=='POST')
+                {
+                    $this->Users_model->UpdateProfile($this->session->userdata('ID'),$this->input->post('Name'),$this->input->post('Email'),$this->input->post('Interest'));
+                    $session = array(
+                                    'ID'  => $this->session->userdata('ID'),
+                                    'Name'  => $this->input->post('Name'),
+                                    'Email'  => $this->input->post('Email'),
+                                    'Interest'  => $this->input->post('Interest')
+                                    );
+                    $this->session->set_userdata($session);
+                    redirect(base_url().'index.php/News/');
+                }
+                $this->load->view('User/Profile.php',$data);
+                $this->load->view('Templates/scripts.php');
+                
+            }
+            else{
+                redirect(base_url().'index.php/User/LogIn/');
+            }
+        }
+        
         public function LogOut()
         {
             $this->session->sess_destroy();
