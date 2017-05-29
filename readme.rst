@@ -1,8 +1,8 @@
 ###################
-AdSquare Project
+Janitri Assignment
 ###################
 
-This is a test project for online advertisement portal.
+This is an assignment project. Hosted at : http://assignment.rf.gd/
 
 ###################
 Tech-Stack
@@ -17,4 +17,4 @@ MINIUM - Theme
 System Requirements
 ###################
 
-PHP - 4.2 or below
+PHP - 4.2
